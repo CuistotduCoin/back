@@ -30,7 +30,6 @@ jobs:
       - run: &install_back_dependencies
           name: Install dependencies
           command: |
-            cd backend
             sudo npm i -g serverless
             yarn install --production=false
       - save_cache: &save_back_cache
@@ -40,7 +39,6 @@ jobs:
       - run:
           name: Deploy backend
           command: |
-            cd backend
             yarn migrate:prod
             yarn deploy:prod
 
@@ -60,7 +58,6 @@ jobs:
       - run:
           name: Deploy backend
           command: |
-            cd backend
             yarn migrate:stage
             yarn deploy:stage
 
