@@ -1,0 +1,63 @@
+{
+  "name": "cuistot-back",
+  "version": "0.0.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:CuistotduCoin/cuistot.git"
+  },
+  "scripts": {
+    "migrate:prod": "assume-role production node knexenv && env-cmd .env node_modules/.bin/knex migrate:latest --env production",
+    "migrate:stage": "assume-role staging node knexenv && env-cmd .env node_modules/.bin/knex migrate:latest --env staging",
+    "migrate:dev": "assume-role development node knexenv && env-cmd .env node_modules/.bin/knex migrate:latest --env development",
+    "rollback:prod": "assume-role production node knexenv && env-cmd .env node_modules/.bin/knex migrate:rollback --env production",
+    "rollback:stage": "assume-role staging node knexenv && env-cmd .env node_modules/.bin/knex migrate:rollback --env staging",
+    "rollback:dev": "assume-role development node knexenv && env-cmd .env node_modules/.bin/knex migrate:rollback --env development",
+    "seed:prod": "assume-role production node knexenv && env-cmd .env node_modules/.bin/knex seed:run --env production",
+    "seed:stage": "assume-role staging node knexenv && env-cmd .env node_modules/.bin/knex seed:run --env staging",
+    "seed:dev": "assume-role development node knexenv && env-cmd .env node_modules/.bin/knex seed:run --env development",
+    "deploy:prod": "assume-role production serverless deploy --force -s production",
+    "deploy:stage": "assume-role staging serverless deploy --force -s staging",
+    "deploy:dev": "assume-role development serverless deploy --force -s development",
+    "psql:prod": "assume-role production node knexenv && env-cmd .env sh ./scripts/psql.sh",
+    "psql:stage": "assume-role staging node knexenv && env-cmd .env sh ./scripts/psql.sh",
+    "psql:dev": "assume-role development node knexenv && env-cmd .env sh ./scripts/psql.sh"
+  },
+  "dependencies": {
+    "algoliasearch": "^3.30.0",
+    "async": "^2.6.1",
+    "aws-sdk": "^2.368.0",
+    "babel-polyfill": "^6.26.0",
+    "bluebird": "^3.5.3",
+    "gm": "^1.23.1",
+    "knex": "^0.15.2",
+    "mangopay2-nodejs-sdk": "^1.8.0",
+    "mjml": "^4.2.1",
+    "mjml-utils": "^2.2.1",
+    "node-fetch": "^2.3.0",
+    "nodemailer": "^4.7.0",
+    "pg": "^7.7.1"
+  },
+  "devDependencies": {
+    "aws-param-env": "^1.2.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "babel-preset-env": "^1.7.0",
+    "body-parser": "^1.18.3",
+    "copy-webpack-plugin": "^4.6.0",
+    "cors": "^2.8.5",
+    "env-cmd": "^8.0.2",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "faker": "^4.1.0",
+    "imports-loader": "^0.8.0",
+    "jsonfile": "^5.0.0",
+    "serverless-appsync-plugin": "^1.0.9",
+    "serverless-stage-manager": "^1.0.5",
+    "serverless-webpack": "^5.2.0",
+    "uuid": "^3.3.2",
+    "webpack": "^4.26.1",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
