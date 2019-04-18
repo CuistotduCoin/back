@@ -5,7 +5,7 @@ frameworkVersion: ">=1.21.0 <2.0.0"
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: ${{opt:stage,'development'}}
+  stage: ${env:STAGE}
   region: eu-west-1
   variableSyntax: "\\${{([ ~:a-zA-Z0-9._\\'\",\\-\\/\\(\\)]+?)}}" # https://serverless.com/framework/docs/providers/aws/guide/variables/#using-custom-variable-syntax
   environment:
