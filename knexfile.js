@@ -1,4 +1,4 @@
-const baseConfig = {
+module.exports = {
   client: 'postgresql',
   connection: {
     port: process.env.DATABASE_PORT,
@@ -12,10 +12,4 @@ const baseConfig = {
     max: 10,
   },
   migrations: { tableName: 'knex_migrations' },
-};
-
-module.exports = {
-  development: { ...baseConfig },
-  staging: { ...baseConfig },
-  production: { ...baseConfig },
 };
