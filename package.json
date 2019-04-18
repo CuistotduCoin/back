@@ -8,11 +8,11 @@
   },
   "scripts": {
     "create-env": "node loadenv",
-    "migrate": "env-cmd .env && node_modules/.bin/knex migrate:latest",
-    "rollback": "env-cmd .env && node_modules/.bin/knex migrate:rollback",
-    "seed": "env-cmd .env && node_modules/.bin/knex seed:run",
-    "deploy": "env-cmd .env && serverless deploy --force",
-    "psql": "env-cmd .env && sh ./scripts/psql.sh"
+    "migrate": "env-cmd .env node_modules/.bin/knex migrate:latest",
+    "rollback": "env-cmd .env node_modules/.bin/knex migrate:rollback",
+    "seed": "env-cmd .env node_modules/.bin/knex seed:run",
+    "deploy": "env-cmd .env serverless deploy --force",
+    "psql": "env-cmd .env sh ./scripts/psql.sh"
   },
   "dependencies": {
     "algoliasearch": "^3.32.1",
